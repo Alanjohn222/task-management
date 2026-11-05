@@ -1,0 +1,28 @@
+# .NET build output and test reports
+bin/
+obj/
+TestResults/
+*.trx
+coverage/
+
+# Frontend dependencies and builds
+node_modules/
+dist/
+
+# Local configuration and secrets
+.env
+.env.*
+*.local
+secrets.json
+*.pfx
+*.p12
+*.pem
+
+# Local editor and operating-system files
+.DS_Store
+.vs/
+*.user
+*.suo
+
+# Logs
+*.log

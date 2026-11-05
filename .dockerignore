@@ -1,0 +1,10 @@
+bin/
+obj/
+.git/
+.DS_Store
+.env
+.env.*
+frontend/
+tests/
+TestResults/
+*.trx

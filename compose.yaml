@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: task_management
+      POSTGRES_USER: task_app
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD before starting Compose}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  api:
+    image: task-management-api:local
+    build: .
+    ports:
+      - "127.0.0.1:5080:8080"
+    environment:
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ConnectionStrings__TaskDb: "${TASK_DB_CONNECTION_STRING:?Set TASK_DB_CONNECTION_STRING}"
+      Jwt__SigningKey: "${TASK_JWT_SIGNING_KEY:?Set TASK_JWT_SIGNING_KEY}"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
