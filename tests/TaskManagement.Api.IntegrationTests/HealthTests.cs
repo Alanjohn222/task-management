@@ -11,7 +11,7 @@ public sealed class HealthTests(DatabaseFixture database) : IntegrationTest(data
     public async Task DatabaseHealthReturnsOk()
     {
         using var response = await Client.GetAsync("/health/database");
-        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         var body = await response.Content.ReadFromJsonAsync<JsonElement>();
         Assert.Equal("ok", body.GetProperty("status").GetString());
     }
