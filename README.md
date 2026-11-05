@@ -172,7 +172,7 @@ Start review with RegistrationTests, then follow IntegrationTest and TestApiFact
 
 ## Continuous integration
 
-The workflow in `.github/workflows/ci.yml` runs on pushes to `main`, pull requests targeting `main`, and manual dispatches. Three jobs check the project on Ubuntu 24.04.
+The [CI workflow](https://github.com/Alanjohn222/task-management/actions/workflows/ci.yml) in `.github/workflows/ci.yml` runs on pushes to `main`, pull requests targeting `main`, and manual dispatches. Three jobs check the project on Ubuntu 24.04.
 
 - **API build and integration tests** installs .NET 10, builds the API and tests in Release, and runs the PostgreSQL integration suite. Testcontainers starts its own database using the runner's Docker daemon.
 - **Frontend lint and build** installs Node.js 22, restores dependencies with `npm ci`, and runs lint and the production build.
